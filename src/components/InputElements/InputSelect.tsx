@@ -99,7 +99,7 @@ const InputSelect = ({
           )}
         </div>
       </div>
-      <div>{children}</div>
+      {children && <div className="mt-4">{children}</div>}
     </div>
   );
 };

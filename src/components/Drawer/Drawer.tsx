@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import InputBox from "../InputElement/InputText";
-import InputSelect from "../InputElement/InputSelect";
-import InputButton from "../InputElement/InputButton";
+import InputBox from "../InputElements/InputText";
+import InputSelect from "../InputElements/InputSelect";
+import InputButton from "../InputElements/InputButton";
 
 function DrawerComponent({
   isDrawerOpen,
@@ -10,15 +9,14 @@ function DrawerComponent({
   isDrawerOpen: boolean;
   toggleDrawer: () => void;
 }) {
-
   return (
     <div>
       {isDrawerOpen && (
         <div
           id="drawer-right-example"
-          className="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform  bg-white w-[45%]"
+          className="fixed top-0 right-0 z-40 h-screen  overflow-y-auto transition-transform  bg-white w-[45%] flex flex-col "
         >
-          <div className="rounded-sm p-3 shadow-sm">
+          <div className="rounded-sm p-5 shadow-[0_1px_2px_#00000040] ">
             <h4 className="font-bold">Edit User</h4>
             <h6>Abbot, Derek</h6>
           </div>
@@ -47,7 +45,7 @@ function DrawerComponent({
             <span className="sr-only">Close menu</span>
           </button>
 
-          <div className="grid mt-4 md:grid-cols-2 gap-4">
+          <div className="grid mt-4 md:grid-cols-2 gap-4 p-5">
             <InputBox
               label="VZID"
               placeholder="1234"
@@ -139,8 +137,12 @@ function DrawerComponent({
               required={false}
               disabled={true}
             >
-              <InputButton />
+              <InputButton label="Edit Group" type="button" />
             </InputSelect>
+          </div>
+          <div className="rounded-sm p-5 shadow-[0_-1px_2px_#00000040] mt-auto flex flex-row justify-end">
+            <InputButton label="Cancel" type="button" />
+            <InputButton label="Update" type="button" styleClass="primary" />
           </div>
         </div>
       )}
